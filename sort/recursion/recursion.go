@@ -8,16 +8,13 @@ func main() {
 	fmt.Println(F1(7))
 	fmt.Println(F2(6, 1))
 
-	// fmt.Println(fib1(7))
-	fmt.Println(fib2(7, 0))
+	fmt.Println(fib1(7))
+	fmt.Println(fib2(7, 1, 1))
 }
 
 // 线性递归
 func F1(n uint) uint {
-	if n < 0 {
-		return 0
-	}
-	if n == 1 {
+	if n < 2 {
 		return 1
 	} else {
 		return n * F1(n-1)
@@ -39,8 +36,8 @@ func F2(n, s uint) uint {
 }
 
 // fib 线性递归
-func fib1(n uint) uint {
-	if n == 1 {
+func fib1(n int) int {
+	if n < 2 {
 		return 1
 	} else {
 		return fib1(n-1) + fib1(n-2)
@@ -48,10 +45,10 @@ func fib1(n uint) uint {
 }
 
 // fibonacci 尾递归
-func fib2(n, a uint) uint {
-	if n == 1 {
-		return 1
+func fib2(n, r1, r2 uint) uint {
+	if n < 2 {
+		return r1
 	} else {
-		return fib2(n-1, n+a)
+		return fib2(n-1, r2, r1 + r2)
 	}
 }
