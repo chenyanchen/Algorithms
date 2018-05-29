@@ -16,17 +16,17 @@ func main() {
 	fmt.Println("排序后:", slice)
 }
 
-func Quick(s []int) {
+// 递归
+func Quick(s []int) []int {
 	var small, big []int
 
 	if len(s) < 2 {
-		return
+		return s
 	} else {
 		pivot := s[0]
 		for _, v := range s[1:] {
 			if pivot > v {
 				small = append(small, v)
-				fmt.Println(small)
 			} else {
 				big = append(big, v)
 			}
@@ -35,6 +35,7 @@ func Quick(s []int) {
 		Quick(big)
 		s = append(append(small, pivot), big...)
 	}
+	return s
 }
 
 
