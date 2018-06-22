@@ -3,29 +3,38 @@
  *     Initial: 2018/05/10        Jon Snow
  */
 
- package main
+package main
 
 import (
+	"math/rand"
 	"fmt"
 )
 
+var count int
+var opttimes int
 func main() {
-	a := []int{34, 5, 3, 6, 9, 0, 12, 23, 13, 7}
-	fmt.Println("排序前:", a)
-	BubbleSort(a)
-	fmt.Println("排序后:", a)
+	var array []int
+	for i := 0; i < 500; i++ {
+		array = append(array, rand.Intn(1000))
+	}
+	//fmt.Println("排序前:", array)
+	BubbleSort(array)
+	fmt.Println("排序后:", array )
+	fmt.Println("比较次数:", count,"\n操作次数:",opttimes)
 }
 
-func swap(s []int, i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func BubbleSort(s []int) {
-	for i := len(s); i >= 0; i-- {
-		for j := 0; j < len(s)-1; j++ {
-			if s[j] > s[j+1] {
-				swap(s, j, j+1)
+func BubbleSort(array []int) {
+	var flag bool
+	for i := len(array); i >= 0; i-- {
+		flag = true
+		for j := 0; j < i-1; j++ {
+			if array[j] > array[j+1] {
+				array[j], array[j+1] = array[j+1], array[j]
+				flag = false
+				opttimes++
 			}
+			count++
 		}
+		if flag { break }
 	}
 }
