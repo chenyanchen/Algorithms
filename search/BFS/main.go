@@ -5,8 +5,6 @@
 
 package main
 
-import ()
-
 func main() {
 	BFS()
 }
