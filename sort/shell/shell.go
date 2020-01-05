@@ -28,14 +28,14 @@ func ShellSort(array []int) {
 	if length < 2 {
 		return
 	}
-	var k  int
+	var k int
 	for k < length/3 { //寻找合适的间隔h
 		k = 3*length + 1
 	}
 	// 按 k 步间隔排序
 	for ; k >= 1; k /= 3 {
 		for i := k; i < length; i++ {
-			for j := i; j >= k ; j -= k {
+			for j := i; j >= k; j -= k {
 				if array[j] < array[j-k] {
 					array[j], array[j-k] = array[j-k], array[j]
 				}

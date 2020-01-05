@@ -49,6 +49,6 @@ func fib2(n, r1, r2 uint) uint {
 	if n < 2 {
 		return r1
 	} else {
-		return fib2(n-1, r2, r1 + r2)
+		return fib2(n-1, r2, r1+r2)
 	}
 }

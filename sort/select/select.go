@@ -7,6 +7,7 @@ import (
 
 var count int
 var opttimes int
+
 func main() {
 	var array []int
 	for i := 0; i < 500; i++ {
@@ -15,7 +16,7 @@ func main() {
 	//fmt.Println("排序前:", array)
 	SelectSort(array)
 	//fmt.Println("排序后:", array)
-	fmt.Println("比较次数:", count,"\n操作次数:",opttimes)
+	fmt.Println("比较次数:", count, "\n操作次数:", opttimes)
 }
 
 func SelectSort(s []int) {

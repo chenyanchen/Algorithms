@@ -3,7 +3,7 @@
  *     Initial: 2018/05/10        Jon Snow
  */
 
- package main
+package main
 
 import (
 	"fmt"

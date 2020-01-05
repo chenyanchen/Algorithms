@@ -29,8 +29,8 @@ func main() {
 		array = append(array, rand.Intn(1000))
 	}
 	fmt.Println("排序前:", array)
-	quickSort(array,0, len(array)-1)
-	fmt.Println("排序后:", array )
+	quickSort(array, 0, len(array)-1)
+	fmt.Println("排序后:", array)
 	fmt.Println("比较次数:", count)
 }
 
