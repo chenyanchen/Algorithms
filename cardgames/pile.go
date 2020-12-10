@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 // Revision History:
 //     Initial: 2019-05-15 14:02    Jon Snow
 //     Description: 纸牌堆叠游戏, 手上有一堆纸牌,

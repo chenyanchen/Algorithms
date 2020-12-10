@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 // Revision history:
 //     Init: 2019/12/27    Jon Snow
 

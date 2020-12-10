@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 package main
 
 import (

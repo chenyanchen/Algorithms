@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 // Revision History:
 //     Initial: 2019-04-12 19:22    Jon Snow
 package redpacket

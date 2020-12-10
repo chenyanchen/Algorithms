@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 // Revision History:
 //     Initial: 2019-06-19 11:11    Jon Snow
 //     题目描述: 有3个门, 其中一扇门后有奖品, 现在你先选一扇门,

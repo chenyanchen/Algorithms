@@ -1,3 +1,5 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 // Revision History:
 //     Initial: 2019-04-12 19:11    Jon Snow
 //     Description: 红包核心实现

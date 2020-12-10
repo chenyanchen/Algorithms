@@ -1,45 +1,11 @@
+// Copyright 2020 Singularity, Inc. All rights reserved.
+
 /*
  * Revision History:
  *     Initial: 2018/05/10        Jon Snow
  */
 
-package main
-
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-var count int = 0
-
-func main() {
-	//slice := []int{}
-	//for i := 0; i < 1000; i++ {
-	//	slice = append(slice, rand.Intn(10000))
-	//}
-	//t := time.Now()
-	////qsort(slice)
-	//quickSort(slice, 0, len(slice)-1)
-	//fmt.Printf("快速排序耗时:%v	比较次数:%v\n", time.Since(t), count)
-	//fmt.Println("排序后:", slice)
-
-	var array []int
-	for i := 0; i < 500; i++ {
-		array = append(array, rand.Intn(1000))
-	}
-	fmt.Println("排序前:", array)
-	quickSort(array, 0, len(array)-1)
-	fmt.Println("排序后:", array)
-	fmt.Println("比较次数:", count)
-}
-
-func Quick_Sort(slice []int) {
-	t := time.Now()
-	//qsort(slice)
-	quickSort(slice, 0, len(slice)-1)
-	fmt.Printf("快速排序耗时:%v	比较次数:%v\n", time.Since(t), count)
-}
+package quicksort
 
 // 优化版: 交换左边比中大右边比中小的元素
 func quickSort(arr []int, start, end int) {
@@ -49,11 +15,9 @@ func quickSort(arr []int, start, end int) {
 		for i <= j {
 			for arr[i] < key {
 				i++
-				count++
 			}
 			for arr[j] > key {
 				j--
-				count++
 			}
 			if i <= j {
 				arr[i], arr[j] = arr[j], arr[i]
@@ -83,12 +47,10 @@ func qsort(data []int) {
 		if data[i] > mid {
 			data[i], data[tail] = data[tail], data[i]
 			tail--
-			count++
 		} else {
 			data[i], data[head] = data[head], data[i]
 			head++
 			i++
-			count++
 		}
 	}
 	qsort(data[:head])
@@ -134,7 +96,6 @@ func quick1(s []int) {
 		for low < high {
 			if key > s[high] {
 				s[low] = s[high]
-				count++
 				break
 			}
 			high--
@@ -143,7 +104,6 @@ func quick1(s []int) {
 		for low < high {
 			if key < s[low] {
 				s[high] = s[low]
-				count++
 				break
 			}
 			low++
@@ -153,4 +113,31 @@ func quick1(s []int) {
 
 	quick1(s[:low-1])
 	quick1(s[high+1:])
+}
+
+func q(arr []int, start, end int) {
+	if start >= end {
+		return
+	}
+	l, r := start, end
+	mid := arr[(l+r)/2]
+	for l <= r {
+		for arr[l] < mid {
+			l++
+		}
+		for mid < arr[r] {
+			r--
+		}
+		if l <= r {
+			arr[l], arr[r] = arr[r], arr[l]
+			l++
+			r--
+		}
+	}
+	if start < r {
+		q(arr, start, r)
+	}
+	if l < end {
+		q(arr, l, end)
+	}
 }
