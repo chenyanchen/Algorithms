@@ -1,3 +1,3 @@
-module github.com/JonSnow47/Algorithms
+module github.com/chenyanchen/Algorithms
 
-go 1.15
+go 1.17

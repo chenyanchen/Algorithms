@@ -2,22 +2,10 @@
 
 package xmath
 
-// Deprecated: without recursive
-func gcd(x, y int) int {
-	tmp := x % y
-	if tmp > 0 {
-		return gcd(y, tmp)
-	} else {
-		return y
-	}
-}
-
 // GCD return the Greatest Common Divisor for 2 int.
-func GCD(x, y int) int {
-	mod := x % y
-	for mod > 0 {
-		x, y = y, mod
-		mod = x % y
+func GCD(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
 	}
-	return y
+	return a
 }

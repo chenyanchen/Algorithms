@@ -35,21 +35,19 @@ func adjustHeap(l []int, start int) {
 	}
 }
 
-func HeapSort(l []int) {
-	length := len(l)
-	if length < 2 {
+func HeapSort(list []int) {
+	if len(list) < 2 {
 		return
 	}
 
-	for j := length; j > 0; j-- {
+	for j := len(list); j > 0; j-- {
 		// 从最后一个非叶子节点开始构建大顶堆
 		for i := (j-1)/2 - 1; i >= 0; i-- {
-			adjustHeap(l, i)
+			adjustHeap(list, i)
 		}
 		// 将根与最后一个元素交换
-		swap(l, 0, j-1)
+		swap(list, 0, j-1)
 	}
-
 }
 
 func print(s []int) {

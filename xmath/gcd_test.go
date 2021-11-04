@@ -1,8 +1,12 @@
 // Copyright 2020 Singularity, Inc. All rights reserved.
 
-package xmath
+package xmath_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/chenyanchen/Algorithms/xmath"
+)
 
 func TestGCD(t *testing.T) {
 	type args struct {
@@ -45,10 +49,12 @@ func TestGCD(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := GCD(tt.args.x, tt.args.y); got != tt.want {
-				t.Errorf("GCD() = %v, want %v", got, tt.want)
-			}
-		})
+		t.Run(
+			tt.name, func(t *testing.T) {
+				if got := xmath.GCD(tt.args.x, tt.args.y); got != tt.want {
+					t.Errorf("GCD() = %v, want %v", got, tt.want)
+				}
+			},
+		)
 	}
 }

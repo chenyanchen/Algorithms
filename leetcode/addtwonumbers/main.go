@@ -1,18 +1,13 @@
-// Copyright 2020 Singularity, Inc. All rights reserved.
-
-// Reversion:
-//   Init: Jon Snow    2020/4/16 22:42
-
 package addtwonumbers
 
 // Definition for singly-linked list.
-type ListNode struct {
+type Node struct {
 	Val  int
-	Next *ListNode
+	Next *Node
 }
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	root := &ListNode{}
+func addTwoNumbers(l1 *Node, l2 *Node) *Node {
+	root := &Node{}
 	node, node1, node2 := root, l1, l2
 	for {
 		var v1, v2 int
@@ -26,12 +21,12 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 		node.Val += v1 + v2
 		if node.Val >= 10 {
-			node.Next = &ListNode{Val: node.Val / 10}
-			node.Val = node.Val % 10
+			node.Next = &Node{Val: node.Val / 10}
+			node.Val %= 10
 		} else if node1 == nil && node2 == nil {
 			break
 		} else {
-			node.Next = &ListNode{}
+			node.Next = &Node{}
 		}
 		node = node.Next
 	}

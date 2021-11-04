@@ -2,16 +2,16 @@
 
 package list
 
-// Definition for singly-linked list.
-type ListNode struct {
+// Node represent a node of the singly-linked list.
+type Node struct {
 	Val  int
-	Next *ListNode
+	Next *Node
 }
 
-func reverseList(head *ListNode) *ListNode {
+func Reverse(head *Node) *Node {
 	var (
 		cur      = head
-		tmp, pre *ListNode
+		tmp, pre *Node
 	)
 
 	for cur != nil {

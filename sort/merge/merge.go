@@ -1,10 +1,5 @@
 // Copyright 2020 Singularity, Inc. All rights reserved.
 
-/*
- * Revision History:
- *     Initial: 2018/06/11        Jon Snow
- */
-
 package merge
 
 func MergeSort(array []int) []int {
@@ -20,8 +15,7 @@ func MergeSort(array []int) []int {
 	return merge(left, right)
 }
 
-func merge(left []int, right []int) []int {
-	var list []int
+func merge(left []int, right []int) (list []int) {
 	i, j := 0, 0
 	for i < len(left) && j < len(right) {
 		if left[i] < right[j] {

@@ -7,8 +7,6 @@
 
 package main
 
-import ()
-
 type Graph struct {
 	edgNum int // the number of edge
 	vexNum int // the number of vertex
@@ -25,7 +23,7 @@ type Edge struct {
 	next *Edge
 }
 
-// Breadth-first search
+// BFS Breadth-first search
 func BFS() {
 
 }

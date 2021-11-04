@@ -8,7 +8,7 @@
 package quicksort
 
 // 优化版: 交换左边比中大右边比中小的元素
-func quickSort(arr []int, start, end int) {
+func Sort(arr []int, start, end int) {
 	if start < end {
 		i, j := start, end
 		key := arr[(start+end)/2]
@@ -27,16 +27,16 @@ func quickSort(arr []int, start, end int) {
 		}
 
 		if start < j {
-			quickSort(arr, start, j)
+			Sort(arr, start, j)
 		}
 		if end > i {
-			quickSort(arr, i, end)
+			Sort(arr, i, end)
 		}
 	}
 }
 
-// qsort from:https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F#Go
-func qsort(data []int) {
+// SortV2 from:https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F#Go
+func SortV2(data []int) {
 	length := len(data)
 	if length < 2 {
 		return
@@ -53,69 +53,70 @@ func qsort(data []int) {
 			i++
 		}
 	}
-	qsort(data[:head])
-	qsort(data[head+1:])
+	SortV2(data[:head])
+	SortV2(data[head+1:])
 }
 
 // 递归
-func quick2(s []int) []int {
+func SortV3(s []int) []int {
 	var small, big []int
 
 	if len(s) < 2 {
 		return s
-	} else {
-		pivot := s[0]
-		for _, v := range s[1:] {
-			if pivot > v {
-				small = append(small, v)
-			} else {
-				big = append(big, v)
-			}
-		}
-		quick2(small)
-		quick2(big)
-		s = append(append(small, pivot), big...)
 	}
+
+	pivot := s[0]
+	for _, v := range s[1:] {
+		if pivot > v {
+			small = append(small, v)
+		} else {
+			big = append(big, v)
+		}
+	}
+	SortV3(small)
+	SortV3(big)
+	s = append(append(small, pivot), big...)
+
 	return s
 }
 
 // 最容易理解
-func quick1(s []int) {
-	var key, low, high int
+func SortV4(s []int) {
+	var key, left, right int
 
 	if len(s) < 2 {
 		return
 	}
 
 	key = s[0]
-	low = 0
-	high = len(s) - 1
+	left, right = 0, len(s)-1
 
-	for low < high {
+	for left < right {
+		for left < right {
+			if key > s[right] {
+				s[left] = s[right]
 
-		for low < high {
-			if key > s[high] {
-				s[low] = s[high]
 				break
 			}
-			high--
+			right--
 		}
 
-		for low < high {
-			if key < s[low] {
-				s[high] = s[low]
+		for left < right {
+			if key < s[left] {
+				s[right] = s[left]
+
 				break
 			}
-			low++
+			left++
 		}
 	}
-	s[low] = key
+	s[left] = key
 
-	quick1(s[:low-1])
-	quick1(s[high+1:])
+	SortV4(s[:left-1])
+	SortV4(s[right+1:])
 }
 
-func q(arr []int, start, end int) {
+func SortV5(arr []int, start, end int) {
 	if start >= end {
 		return
 	}
@@ -135,9 +136,9 @@ func q(arr []int, start, end int) {
 		}
 	}
 	if start < r {
-		q(arr, start, r)
+		SortV5(arr, start, r)
 	}
 	if l < end {
-		q(arr, l, end)
+		SortV5(arr, l, end)
 	}
 }
